@@ -1,53 +1,24 @@
-<script>
-	import Header from './Header.svelte';
+<script lang="ts">
+	import '../app.postcss';
 	import './styles.css';
+	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
+	import '@skeletonlabs/skeleton/styles/all.css';
+	import { AppShell } from '@skeletonlabs/skeleton';
+	import Footer from '$lib/Footer.svelte';
+	import Header from '$lib/Header.svelte';
+	import Sidebar from '$lib/Sidebar.svelte';
 </script>
 
-<div class="app">
-	<Header />
-
-	<main>
+<div class="app h-full w-full">
+	<AppShell>
+		<svelte:fragment slot="header"><Header /></svelte:fragment>
+		<svelte:fragment slot="sidebarLeft"><Sidebar /></svelte:fragment>
+		<!-- <svelte:fragment slot="sidebarRight">Sidebar Right</svelte:fragment> -->
+		<!-- <svelte:fragment slot="pageHeader"><Header /></svelte:fragment> -->
+		<!-- Router Slot -->
 		<slot />
-	</main>
-
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
+		<!-- ---- / ---- -->
+		<!-- <svelte:fragment slot="pageFooter">Page Footer</svelte:fragment> -->
+		<svelte:fragment slot="footer"><Footer /></svelte:fragment>
+	</AppShell>
 </div>
-
-<style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
-</style>
