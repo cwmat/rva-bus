@@ -1,7 +1,5 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import Map from '$lib/Map.svelte';
 </script>
 
 <svelte:head>
@@ -9,6 +7,6 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-	Spaghetti
+<section class="h-full w-full">
+	<Map />
 </section>
