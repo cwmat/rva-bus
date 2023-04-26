@@ -4,6 +4,7 @@ import Extent from '@arcgis/core/geometry/Extent';
 import { watch } from '@arcgis/core/core/reactiveUtils';
 import Expand from '@arcgis/core/widgets/Expand';
 import MapView from '@arcgis/core/views/MapView';
+import Basemap from "@arcgis/core/Basemap";
 
 interface MapApp {
 	view?: MapView;
@@ -84,4 +85,10 @@ export async function init(container: HTMLDivElement, filter: string) {
 function cleanup() {
 	handler?.remove();
 	app.view?.destroy();
+}
+
+export function changeBasemap(inBasemap: string) {
+	const basemap = inBasemap.toLowerCase();
+	const map = app.view?.map as ArcGISMap;
+	map.basemap = Basemap.fromId(basemap);
 }

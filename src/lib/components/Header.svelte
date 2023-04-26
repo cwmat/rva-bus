@@ -1,16 +1,11 @@
 <script lang="ts">
+	import { darkMode } from '$lib/stores/darkMode';
 	import { AppBar, LightSwitch } from '@skeletonlabs/skeleton';
-	// import { setContext } from 'svelte';
-	// import { writable } from 'svelte/store';
 
-	// // import type { LayoutData } from './$types';
-
-	// export let data: any;
-	// // Create a store and update it when necessary...
-	// const darkMode = writable();
-	// $: darkMode.set(data.darkMode);
-	// // ...and add it to the context for child components to access
-	// setContext('darkMode', darkMode);
+	const handleLightSwitch = (_event: any) => {
+		console.log('lightswitch toggle')
+		darkMode.update(e => !e);
+	};
 </script>
 
 <header class="header">
@@ -27,7 +22,7 @@
 				>RVA Bus Stuff</span
 			>🍑
 		</div>
-		<svelte:fragment slot="trail"><LightSwitch /></svelte:fragment>
+		<svelte:fragment slot="trail"><LightSwitch on:click={handleLightSwitch} /></svelte:fragment>
 	</AppBar>
 </header>
 
