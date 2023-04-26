@@ -3,7 +3,8 @@
 	import { onDestroy, onMount } from 'svelte';
   // import { Skeleton } from '@skeletonlabs/skeleton';
 
-	const type = $page.url.searchParams.get('type')!;
+	// const type = $page.url.searchParams.get('type')!;
+  const type = 'temp';
 	let viewRef: HTMLDivElement;
 
 	let cleanup: () => void;
